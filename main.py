@@ -12,10 +12,18 @@ class Falcon(arcade.Sprite):
         self.center_x = SCREEN_WIDTH / 2
 
         self.center_y = 100
+class Meteor(arcade.Sprite):
+    def __init__(self):
+        super().__init__('meteorit.png', 0.3)
+        self.center_x = SCREEN_WIDTH / 2
+
+        self.center_y = 300
+
 class Game(arcade.Window):
     def __init__(self, width, height, title):
         super().__init__(width, height, title)
         self.bg = arcade.load_texture('background.jpg')
+        self.meteor = Meteor()
         self.falcon = Falcon()
         self.setup()
 
@@ -28,6 +36,7 @@ class Game(arcade.Window):
                                       SCREEN_WIDTH, SCREEN_HEIGHT,
                                       self.bg)
         self.falcon.draw()
+        self.meteor.draw()
     def update(self, delta_time: float):
         pass
 
